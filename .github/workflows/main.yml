@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Install deps
-        run: apt-get update && apt-get install -y --no-install-recommends bash bc binutils build-essential bzip2 cpio file git make ncurses-dev patch perl python graphviz rsync sudo unzip zip wget qemu-utils openssh-client vim
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends bash bc binutils build-essential bzip2 cpio file git make ncurses-dev patch perl python graphviz rsync sudo unzip zip wget qemu-utils openssh-client vim
         
       - name: build
         run: make pc_x86_64_efi_defconfig && make
