@@ -31,4 +31,10 @@ jobs:
         
       - name: build
         run: make pc_x86_64_efi_defconfig && make
+        
+      - name: Upload build files
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-files
+          path: ./output/images  
 
