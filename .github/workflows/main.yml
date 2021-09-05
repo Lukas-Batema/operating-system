@@ -28,9 +28,12 @@ jobs:
       # Runs a single command using the runners shell
       - name: Install deps
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends bash bc binutils build-essential bzip2 cpio file git make ncurses-dev patch perl python graphviz rsync sudo unzip zip wget qemu-utils openssh-client vim
-        
+    
+      - name: Get number of CPU cores
+        uses: SimenB/github-actions-cpu-cores@v1
+  
       - name: build
-        run: make pc_x86_64_efi_defconfig && make
+        run: make pc_x86_64_efi_defconfig && make -j${{ steps.cpu-cores.outputs.count }}
         
       - name: Upload build files
         uses: actions/upload-artifact@v2
