@@ -1,0 +1,6 @@
+dist: xenial
+
+before_install:
+  - sudo apt-get update && sudo apt-get install -y --no-install-recommends bash bc binutils build-essential bzip2 cpio file git make ncurses-dev patch perl python graphviz rsync sudo unzip zip wget qemu-utils openssh-client vim
+
+script: make raspberrypi4_defconfig && make
